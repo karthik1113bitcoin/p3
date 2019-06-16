@@ -1,7 +1,7 @@
 FROM 172.30.1.1:5000/p3/toolbox_image:latest as toolbox
 COPY ./CUST /tmp/cust
 RUN /bin/sh -c '/tmp/TOOL/reorg.sh'
-RUN /bin/sh -c 'sh /tmp/ORG/cust/INFENG/scripts/common*.scr'
+#RUN /bin/sh -c 'sh /tmp/ORG/cust/INFENG/scripts/common*.scr'
 #FROM scratch
 FROM centos:7
 COPY --from=toolbox /tmp/ORG/cust /tmp/ORG/cust
