@@ -1,0 +1,6 @@
+<--start
+trace on
+
+print("kk")
+
+end-->
