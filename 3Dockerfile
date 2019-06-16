@@ -1,0 +1,8 @@
+FROM 172.30.1.1:5000/p3/cn_finlistval:latest AS current-image
+COPY ${FC_INSTALL_PATH}/cust/ /tmp/curr/
+FROM 172.30.1.1:5000/p3/dbs_finlistval:latest
+COPY --from=current-image /tmp/curr/cust ${FC_INSTALL_PATH}/cust
+COPY --from=172.30.1.1:5000/p3/release_image:latest /tmp/ORG/cust /tmp/ORG/cust
+COPY --from=172.30.1.1:5000/p3/release_image:latest /tmp/ORG/cust /usr/local/Finacle/BE/cust/DFBANK1/INFENG/scripts
+#COPY --from=172.30.1.1:5000/p3/release_image:latest /tmp/ORG/cust ${FC_INSTALL_PATH}/cust/DFBANK1/INFENG/scripts
+ENTRYPOINT exec /bin/sh -c "trap : TERM INT; (while true; do sleep 1000; done) & wait"

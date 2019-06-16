@@ -1,0 +1,2 @@
+FROM 172.30.1.1:5000/dbs/dbs_finlistval:1.0
+COPY ./CUST ${FC_INSTALL_PATH}/cust
