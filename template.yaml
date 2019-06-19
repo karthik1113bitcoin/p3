@@ -153,6 +153,39 @@ objects:
             to: 
               kind: ImageStreamTag
               name: cn_finlistval:latest
+      - kind: DeploymentConfig
+        apiVersion: v1
+        metadata: 
+          name: 3dc
+          namespace: p3
+          app: test
+        spec: 
+          triggers:
+          - type: "ImageChange" 
+            imageChangeParams:
+              automatic: true
+              containerNames:
+                 - "backend"
+              from:
+                kind: "ImageStreamTag"
+                name: "cn_finlistval:latest"
+          strategy: 
+            type: "Rolling"
+          template: 
+            metadata:
+              labels:
+                name: "backend"
+            spec:
+              containers:
+              - name: "backend"
+                image: "172.30.1.1:5000/p3/cn_finlistval:latest"
+                ports:
+                 - containerPort: 8080
+                   protocol: "TCP"
+           replicas: 1
+           paused: false 
+           revisionHistoryLimit: 2 
+           minReadySeconds: 0
 parameters:
   - name: GENERIC_WEBHOOK_SECRET
     description: A secret string used to configure the GitHub webhook
