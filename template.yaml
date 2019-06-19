@@ -8,6 +8,7 @@ objects:
         apiVersion: v1
         metadata:
           name: 3bcsecret
+          namespace: p3
           creationTimestamp:
         stringData:
           WebHookSecretKey: 3bcsecret
