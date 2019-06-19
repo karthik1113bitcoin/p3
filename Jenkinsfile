@@ -20,7 +20,7 @@ pipeline {
                 sh 'echo preprocessing step...'
             }
         }
-        stage('cleanup') {
+       /* stage('cleanup') {
             steps {
                 script {
                     openshift.withCluster() {
@@ -35,7 +35,7 @@ pipeline {
                     }
                 } // script
             } // steps
-        } // stage
+        } // stage*/
        stage('Build Source archive') {
             steps {
                 sh 'rm -rf cust'
@@ -71,8 +71,10 @@ pipeline {
                 script {
                     openshift.withCluster() {
                         openshift.withProject() {
-                            // create a new application from the templatePath
-                            openshift.newApp(templatePath)
+                            if (!(openshift.selector("all", [ template : templateName ]).exists())) {
+                                // create a new application from the templatePath
+                                openshift.newApp(templatePath)
+                            }
                         }
                     }
                 } // script
