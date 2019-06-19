@@ -6,5 +6,6 @@ RUN /bin/sh -c '/tmp/TOOL/reorg.sh'
 FROM centos:7
 COPY --from=toolbox /tmp/ORG/cust /tmp/ORG/cust
 COPY --from=toolbox /tmp/TOOL/trigger.sh /tmp/TOOL/
-#ENTRYPOINT exec /bin/sh -c "/tmp/TOOL/trigger.sh"
-ENTRYPOINT exec /bin/sh -c "trap : TERM INT; (while true; do sleep 1000; done) & wait"
+RUN /bin/bash -c 'chmod -R 777 /tmp/TOOL/'
+ENTRYPOINT exec /bin/sh -c "/tmp/TOOL/trigger.sh"
+#ENTRYPOINT exec /bin/sh -c "trap : TERM INT; (while true; do sleep 1000; done) & wait"
