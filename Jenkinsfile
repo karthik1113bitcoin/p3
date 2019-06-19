@@ -71,7 +71,7 @@ pipeline {
                 script {
                     openshift.withCluster() {
                         openshift.withProject() {
-                            if (!(openshift.selector("all", [ template : templateName ]).exists())) {
+                            if (!(openshift.selector("bc", [ template : templateName ]).exists())) {
                                 // create a new application from the templatePath
                                 openshift.newApp(templatePath)
                             }
