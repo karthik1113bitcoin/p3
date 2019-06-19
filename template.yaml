@@ -182,10 +182,10 @@ objects:
                 ports:
                  - containerPort: 8080
                    protocol: "TCP"
-           replicas: 1
-           paused: false 
-           revisionHistoryLimit: 2 
-           minReadySeconds: 0
+          replicas: 1
+          paused: false 
+          revisionHistoryLimit: 2 
+          minReadySeconds: 0
 parameters:
   - name: GENERIC_WEBHOOK_SECRET
     description: A secret string used to configure the GitHub webhook
