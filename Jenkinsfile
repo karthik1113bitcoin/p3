@@ -39,7 +39,7 @@ pipeline {
        stage('Build Source archive') {
             steps {
                 sh 'rm -rf cust'
-                sh 'rm -f cust.tgz'
+                /*sh 'rm -f cust.tgz'
                 sh 'mkdir cust'
                 sh 'mv COMMON_CNTRY DFBANK1 ./cust/'
                 sh 'tar -cvf cust.tgz cust'
@@ -47,7 +47,7 @@ pipeline {
                 sh 'whoami'
                 sh 'echo $JENKINS_USERNAME'
                 sh 'pwd'
-                sh 'oc whoami'
+                sh 'oc whoami'*/
                // sh 'oc new-app https://raw.githubusercontent.com/karthik1113bitcoin/dbs_cust/master/dbs_template.json'
             }
        }
