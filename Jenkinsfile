@@ -1,6 +1,6 @@
 //def templatePath = 'https://raw.githubusercontent.com/karthik1113bitcoin/dbs_cust/master/dbs_template.json'
-def templatePath = 'https://raw.githubusercontent.com/karthik1113bitcoin/p3/master/template.yaml'
-def templateName = 'p3'
+def templatePath = 'https://raw.githubusercontent.com/karthik1113bitcoin/p3/master/build_template.yaml'
+def templateName = 'bp3'
 pipeline {
     environment {
         registryURL = 'https://10.73.122.51:4500'
