@@ -1,5 +1,8 @@
 kind: Template
 apiVersion: v1
+labels:
+   template: p3
+   app: p3
 objects:
       - kind: Secret
         apiVersion: v1
