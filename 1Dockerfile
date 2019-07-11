@@ -4,6 +4,7 @@ RUN /bin/sh -c '/tmp/TOOL/reorg.sh'
 #RUN /bin/sh -c 'sh /tmp/ORG/cust/INFENG/scripts/common*.scr'
 #FROM scratch
 FROM centos:7
+RUN /bin/bash -c 'mkdir /tmp/TOOL/'
 COPY --from=toolbox /tmp/ORG/cust /tmp/ORG/cust
 COPY --from=toolbox /tmp/TOOL/trigger.sh /tmp/TOOL/
 RUN /bin/bash -c 'chmod -R 777 /tmp/TOOL/'
